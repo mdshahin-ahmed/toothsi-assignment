@@ -1,0 +1,85 @@
+select {
+  width: 100px;
+}
+.searchInput {
+  background: #f2f2f2;
+  border: none;
+  border: 1px solid rgb(187, 186, 186);
+  padding: 3px 5px;
+}
+.searchInput:focus {
+  outline-style: none;
+}
+.addToCard {
+  margin-left: 10px;
+  background: #00a0c6;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+}
+.text-blue {
+  color: #49bcca;
+}
+.resetSection {
+  font-weight: bold;
+  display: inline;
+  cursor: pointer;
+}
+
+/* table section  */
+.tableHeadingWrap {
+  background: #eeebeb;
+}
+
+.imageHeading {
+  width: 10%;
+  text-align: start;
+  padding: 5px 5px;
+}
+.nameHeading {
+  width: 25%;
+  text-align: start;
+  padding: 5px 5px;
+}
+.colorHeading {
+  width: 15%;
+  text-align: start;
+  padding: 5px 5px;
+}
+.stockHeading {
+  width: 20%;
+  text-align: start;
+  padding: 5px 5px;
+}
+.priceHeading {
+  width: 5%;
+  text-align: start;
+  padding: 5px 5px;
+}
+/* .buyHeading {
+} */
+.tableImage {
+  text-align: start;
+}
+.tableImage img {
+  width: 60px;
+  height: 70px;
+}
+.tableName,
+.tableColor {
+  color: #49bcca;
+  font-weight: bold;
+  text-align: start;
+  text-decoration: underline;
+  padding: 0px 5px;
+}
+
+.tableStock,
+.tablePrice {
+  text-align: start;
+  padding: 0px 5px;
+  font-weight: bold;
+}
+.tableStock {
+  color: #0d8553;
+}

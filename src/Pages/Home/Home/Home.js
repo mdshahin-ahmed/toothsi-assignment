@@ -4,6 +4,24 @@ import "./Home.css";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [order, setOrder] = useState("ASC");
+
+  const sorting = (col) => {
+    if (order === "ASC") {
+      const sorted = [...products].sort((a, b) =>
+        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+      );
+      setProducts(sorted);
+      setOrder("DSC");
+    }
+    if (order === "DSC") {
+      const sorted = [...products].sort((a, b) =>
+        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
+      );
+      setProducts(sorted);
+      setOrder("ASC");
+    }
+  };
   useEffect(() => {
     fetch("data.json")
       .then((res) => res.json())
@@ -44,10 +62,18 @@ const Home = () => {
         <table className="w-100">
           <thead className="tableHeadingWrap">
             <th className="imageHeading">Image</th>
-            <th className="nameHeading">Name</th>
-            <th className="colorHeading">Color</th>
-            <th className="stockHeading">Stock</th>
-            <th className="priceHeading">Price</th>
+            <th className="nameHeading" onClick={() => sorting("name")}>
+              Name
+            </th>
+            <th className="colorHeading" onClick={() => sorting("color")}>
+              Color
+            </th>
+            <th className="stockHeading" onClick={() => sorting("stock")}>
+              Stock
+            </th>
+            <th className="priceHeading" onClick={() => sorting("price")}>
+              Price
+            </th>
             <th className="buyHeading">Buy</th>
           </thead>
           <tbody>

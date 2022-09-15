@@ -34,27 +34,31 @@ select {
 .imageHeading {
   width: 10%;
   text-align: start;
-  padding: 5px 5px;
+  padding: 10px 5px;
 }
 .nameHeading {
   width: 25%;
   text-align: start;
   padding: 5px 5px;
+  cursor: pointer;
 }
 .colorHeading {
   width: 15%;
   text-align: start;
   padding: 5px 5px;
+  cursor: pointer;
 }
 .stockHeading {
   width: 20%;
   text-align: start;
   padding: 5px 5px;
+  cursor: pointer;
 }
 .priceHeading {
   width: 5%;
   text-align: start;
   padding: 5px 5px;
+  cursor: pointer;
 }
 /* .buyHeading {
 } */
@@ -82,4 +86,8 @@ select {
 }
 .tableStock {
   color: #0d8553;
+}
+.headingArrow i {
+  display: block;
+  height: 6px;
 }

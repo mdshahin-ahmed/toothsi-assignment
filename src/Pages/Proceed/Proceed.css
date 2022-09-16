@@ -1,0 +1,10 @@
+.backToHome {
+  background: #0055ff;
+  width: 200px;
+  margin: 20px auto;
+  padding: 5px 0px;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}

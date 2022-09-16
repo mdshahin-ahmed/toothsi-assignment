@@ -1,0 +1,91 @@
+.totalCartWrap {
+  border: 1px solid rgb(207, 207, 207);
+  padding: 20px 10px;
+  height: 240px;
+}
+.subTotal,
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.cartHr {
+  margin-top: 5px;
+  opacity: 1;
+  color: #e6e4e4;
+}
+
+.subTotalPrice {
+  color: #8291c6;
+}
+.totalPrice {
+  color: #2e3cb3;
+}
+a {
+  text-decoration: none;
+}
+.proceed {
+  text-transform: uppercase;
+  background: #1246af;
+  color: white;
+  padding: 10px 0px;
+  text-align: center;
+  margin-top: 25px;
+  border-radius: 15px;
+  text-decoration: none;
+}
+
+.cHeadWrap {
+  border-bottom: 1px solid rgb(216, 215, 215);
+}
+.cThProduct {
+  width: 40%;
+  padding-bottom: 10px;
+}
+.cThPrice {
+  width: 20%;
+  padding-bottom: 10px;
+}
+.cThQuantity {
+  width: 20%;
+  padding-bottom: 10px;
+}
+.cThSubtotal {
+  width: 20%;
+  padding-bottom: 10px;
+}
+.product {
+  display: flex;
+  font-weight: bold;
+}
+.productImage img {
+  height: 60px;
+  width: 60px;
+  margin: 10px 10px;
+}
+.delete {
+  align-self: center;
+  cursor: pointer;
+}
+.productName {
+  align-self: center;
+}
+.priceTh {
+  color: #9b999b;
+}
+.quantityWrap {
+  display: flex;
+  border: 1px solid #f3f2f3;
+  padding: 5px 10px;
+  justify-content: space-around;
+  border-radius: 18px;
+}
+.plus,
+.minus {
+  font-size: 20px;
+  cursor: pointer;
+}
+.quantity {
+  font-size: 15px;
+  align-self: center;
+}

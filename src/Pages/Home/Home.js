@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
+
+import { Link } from "react-router-dom";
+
 import "./Home.css";
 
-const Home = () => {
+const Home = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
   const [order, setOrder] = useState("ASC");
   const [inputValue, setInputValue] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
   const [filterSize, setFilterSize] = useState("");
+
+  const resetFunction = () => {
+    setFilterCategory("");
+    setFilterSize("");
+  };
 
   const sorting = (col) => {
     if (order === "ASC") {
@@ -30,6 +38,8 @@ const Home = () => {
       .then((data) => setProducts(data));
   }, []);
 
+  let quantity = document.getElementsByClassName("productQuantity").value;
+  console.log(quantity);
   return (
     <div>
       <div className="container mt-5 ">
@@ -56,7 +66,7 @@ const Home = () => {
               <option value="xl">XL</option>
               <option value="xxl">XXL</option>
             </select>
-            <div className="resetSection">
+            <div className="resetSection" onClick={() => resetFunction()}>
               <i className="fa-solid fa-rotate-left text-blue ms-3 me-1"></i>
               <span className="text-blue">Reset</span>
             </div>
@@ -68,7 +78,10 @@ const Home = () => {
               className="searchInput"
               onChange={(e) => setInputValue(e.target.value)}
             />
-            <button className="addToCard">Add To Card</button>
+
+            <Link to={"/checkout"}>
+              <button className="addToCard">Add To Card</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -153,6 +166,24 @@ const Home = () => {
                     <td className="tablePrice">
                       <span>$</span>
                       {price}
+                    </td>
+                    <td className="tableBuy">
+                      <div className="quantity">
+                        <input
+                          type="number"
+                          className="productQuantity"
+                          defaultValue={1}
+                        />
+                      </div>
+                      <div className="cartIcon">
+                        <i className="fa-solid fa-cart-shopping"></i>
+                      </div>
+                      <div
+                        className="checkBox"
+                        onClick={() => addToCart({ ...product, quantitys: 2 })}
+                      >
+                        <input type="checkbox" name="" id="" />
+                      </div>
                     </td>
                   </tr>
                 );

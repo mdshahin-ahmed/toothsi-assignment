@@ -10,6 +10,7 @@ const Home = ({ addToCart }) => {
   const [inputValue, setInputValue] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
   const [filterSize, setFilterSize] = useState("");
+  const [quantitys, setQuantitys] = useState("1");
 
   const resetFunction = () => {
     setFilterCategory("");
@@ -38,8 +39,15 @@ const Home = ({ addToCart }) => {
       .then((data) => setProducts(data));
   }, []);
 
-  let quantity = document.getElementsByClassName("productQuantity").value;
-  console.log(quantity);
+  const quantity = (number) => {
+    if (number >= 1) {
+      setQuantitys(number);
+    } else {
+      document.getElementsByClassName("productQuantity").disable = true;
+      setQuantitys(1);
+    }
+  };
+
   return (
     <div>
       <div className="container mt-5 ">
@@ -171,6 +179,7 @@ const Home = ({ addToCart }) => {
                       <div className="quantity">
                         <input
                           type="number"
+                          onChange={(e) => quantity(e.target.value)}
                           className="productQuantity"
                           defaultValue={1}
                         />
@@ -180,7 +189,9 @@ const Home = ({ addToCart }) => {
                       </div>
                       <div
                         className="checkBox"
-                        onClick={() => addToCart({ ...product, quantitys: 2 })}
+                        onClick={() =>
+                          addToCart({ ...product, quantitys: quantitys })
+                        }
                       >
                         <input type="checkbox" name="" id="" />
                       </div>

@@ -2,7 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Checkout.css";
 
-const Checkout = ({ cartProduct }) => {
+const Checkout = ({
+  cartProduct,
+  clearCart,
+  deleteItem,
+  handleIncrement,
+  handleDecrement,
+}) => {
   let productSubTotal = 0;
   let subtotal = 0;
   let vat = 0;
@@ -30,7 +36,10 @@ const Checkout = ({ cartProduct }) => {
                     <tr key={id}>
                       <td>
                         <div className="product">
-                          <div className="delete">
+                          <div
+                            className="delete"
+                            onClick={() => deleteItem(id)}
+                          >
                             <i className="fa-solid fa-xmark"></i>
                           </div>
                           <div className="productImage">
@@ -45,9 +54,19 @@ const Checkout = ({ cartProduct }) => {
                       </td>
                       <td>
                         <div className="quantityWrap">
-                          <div className="minus">-</div>
+                          <div
+                            className="minus"
+                            onClick={() => handleDecrement(id)}
+                          >
+                            -
+                          </div>
                           <div className="quantity">{quantitys}</div>
-                          <div className="plus">+</div>
+                          <div
+                            className="plus"
+                            onClick={() => handleIncrement(id)}
+                          >
+                            +
+                          </div>
                         </div>
                       </td>
                       <td>
@@ -80,7 +99,9 @@ const Checkout = ({ cartProduct }) => {
               </span>
             </div>
             <Link to={"./proceed"}>
-              <div className="proceed">Proceed to checkout</div>
+              <div className="proceed" onClick={() => clearCart()}>
+                Proceed to checkout
+              </div>
             </Link>
           </div>
         </div>
